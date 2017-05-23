@@ -119,6 +119,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Form_TemperatureModify.Designer.vb">
+      <DependentUpon>Form_TemperatureModify.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form_TemperatureModify.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form_Check_LMTD.resx">
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Design_NTU.resx">
       <DependentUpon>Form_Design_NTU.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_TemperatureModify.resx">
+      <DependentUpon>Form_TemperatureModify.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.vb</DependentUpon>
@@ -154,6 +163,13 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Images\IMG_1_1.jpg" />
+    <Content Include="Images\IMG_1_2.jpg" />
+    <Content Include="Images\IMG_1_3.jpg" />
+    <Content Include="Images\IMG_1_4.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

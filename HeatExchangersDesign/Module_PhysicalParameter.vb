@@ -38,6 +38,35 @@
         New Fluid(360, 13.984, 39.5, 528.0, 0.126, 2.35), New Fluid(370, 40.321, 33.7, 450.5, 0.126, 6.79)
         }
 
+    Public Air() As Fluid = {
+        New Fluid(-50, 1.013, 2.04, 1.584, 9.23, 0.728), New Fluid(-40, 1.013, 2.12, 1.515, 10.04, 0.728),
+        New Fluid(-30, 1.013, 2.2, 1.453, 10.8, 0.723), New Fluid(-20, 1.009, 2.28, 1.395, 11.61, 0.716),
+        New Fluid(-10, 1.009, 2.36, 1.342, 12.43, 0.712), New Fluid(0, 1.005, 2.44, 1.293, 13.28, 0.707),
+        New Fluid(10, 1.005, 2.51, 1.247, 14.16, 0.705), New Fluid(20, 1.005, 2.59, 1.205, 15.06, 0.703),
+        New Fluid(30, 1.005, 2.67, 1.165, 16.0, 0.701), New Fluid(40, 1.005, 2.76, 1.128, 16.96, 0.699),
+        New Fluid(50, 1.005, 2.83, 1.093, 17.95, 0.698), New Fluid(60, 1.005, 2.9, 1.06, 18.97, 0.696),
+        New Fluid(70, 1.009, 2.96, 1.029, 20.02, 0.694), New Fluid(80, 1.009, 3.05, 1.0, 21.09, 0.692),
+        New Fluid(90, 1.009, 3.13, 0.972, 22.1, 0.69), New Fluid(100, 1.009, 3.21, 0.946, 23.13, 0.688),
+        New Fluid(120, 1.009, 3.34, 0.898, 25.45, 0.686), New Fluid(140, 1.013, 3.49, 0.854, 27.8, 0.684),
+        New Fluid(160, 1.017, 3.64, 0.815, 30.09, 0.682), New Fluid(180, 1.022, 3.78, 0.779, 32.49, 0.681),
+        New Fluid(200, 1.026, 3.93, 0.746, 34.85, 0.68), New Fluid(250, 1.038, 4.27, 0.674, 40.61, 0.677),
+        New Fluid(300, 1.047, 4.6, 0.615, 48.33, 0.674), New Fluid(350, 1.059, 4.91, 0.566, 55.46, 0.676),
+        New Fluid(400, 1.068, 5.21, 0.524, 63.09, 0.678), New Fluid(500, 1.093, 5.74, 0.456, 79.38, 0.687),
+        New Fluid(600, 1.114, 6.22, 0.404, 96.89, 0.699), New Fluid(700, 1.135, 6.71, 0.362, 115.4, 0.706),
+        New Fluid(800, 1.156, 7.18, 0.329, 134.8, 0.713), New Fluid(900, 1.172, 7.63, 0.301, 155.1, 0.717),
+        New Fluid(1000, 1.185, 8.07, 0.277, 177.1, 0.719), New Fluid(1100, 1.197, 8.5, 0.257, 199.3, 0.722),
+        New Fluid(1200, 1.21, 9.15, 0.239, 233.7, 0.724)
+        }
+
+    Public Lubricant11() As Fluid = {
+        New Fluid(0, 1.834, 14.49, 905.0, 1336, vbNull), New Fluid(10, 1.872, 14.41, 898.8, 564.2, 15310),
+        New Fluid(20, 1.909, 14.32, 892.7, 280.2, 6591), New Fluid(30, 1.947, 14.23, 886.6, 153.2, 3335),
+        New Fluid(40, 1.985, 14.14, 880.6, 90.7, 1859), New Fluid(50, 2.022, 14.05, 874.6, 57.4, 1121),
+        New Fluid(60, 2.064, 13.96, 868.8, 38.4, 723), New Fluid(70, 2.106, 13.87, 863.1, 27.0, 493),
+        New Fluid(80, 2.148, 13.79, 857.4, 19.7, 354), New Fluid(90, 2.19, 13.7, 851.8, 14.9, 263),
+        New Fluid(100, 2.236, 13.61, 846.2, 11.5, 203)
+        }
+
     Public Lubricant14() As Fluid = {
         New Fluid(0, 1.866, 14.93, 905.2, 2237, 25310), New Fluid(10, 1.909, 14.85, 899.0, 863.2, 9979),
         New Fluid(20, 1.915, 14.77, 892.8, 410.9, 4846), New Fluid(30, 1.993, 14.7, 886.7, 216.5, 2603),
@@ -87,6 +116,34 @@
                         (Water(Y).Temperature - t)
                 End If
             Case 1
+                X = UBound(Air)
+                Y = LBound(Air)
+                If t > Air(X).Temperature Or t < Air(Y).Temperature Then
+                    MsgBox("流体温度超出计算范围，请重新输入",, "提示")
+                Else
+                    While (t >= Air(Y).Temperature)
+                        Y = Y + 1
+                    End While
+                    Temp = (Air(Y).Specific_HeatCapacity) -
+                        (Air(Y).Specific_HeatCapacity - Air(Y - 1).Specific_HeatCapacity) /
+                        (Air(Y).Temperature - Air(Y - 1).Temperature) *
+                        (Air(Y).Temperature - t)
+                End If
+            Case 2
+                X = UBound(Lubricant11)
+                Y = LBound(Lubricant11)
+                If t > Lubricant11(X).Temperature Or t < Lubricant11(Y).Temperature Then
+                    MsgBox("流体温度超出计算范围，请重新输入",, "提示")
+                Else
+                    While (t >= Lubricant11(Y).Temperature)
+                        Y = Y + 1
+                    End While
+                    Temp = (Lubricant11(Y).Specific_HeatCapacity) -
+                        (Lubricant11(Y).Specific_HeatCapacity - Lubricant11(Y - 1).Specific_HeatCapacity) /
+                        (Lubricant11(Y).Temperature - Lubricant11(Y - 1).Temperature) *
+                        (Lubricant11(Y).Temperature - t)
+                End If
+            Case 3
                 X = UBound(Lubricant14)
                 Y = LBound(Lubricant14)
                 If t > Lubricant14(X).Temperature Or t < Lubricant14(Y).Temperature Then
@@ -124,6 +181,34 @@
                         (Water(Y).Temperature - t)
                 End If
             Case 1
+                X = UBound(Air)
+                Y = LBound(Air)
+                If t > Air(X).Temperature Or t < Air(Y).Temperature Then
+                    MsgBox("流体温度超出计算范围，请重新输入",, "提示")
+                Else
+                    While (t >= Air(Y).Temperature)
+                        Y = Y + 1
+                    End While
+                    Temp = (Air(Y).ThermalConductivity) -
+                        (Air(Y).ThermalConductivity - Air(Y - 1).ThermalConductivity) /
+                        (Air(Y).Temperature - Air(Y - 1).Temperature) *
+                        (Air(Y).Temperature - t)
+                End If
+            Case 2
+                X = UBound(Lubricant11)
+                Y = LBound(Lubricant11)
+                If t > Lubricant11(X).Temperature Or t < Lubricant11(Y).Temperature Then
+                    MsgBox("流体温度超出计算范围，请重新输入",, "提示")
+                Else
+                    While (t >= Lubricant11(Y).Temperature)
+                        Y = Y + 1
+                    End While
+                    Temp = (Lubricant11(Y).ThermalConductivity) -
+                        (Lubricant11(Y).ThermalConductivity - Lubricant11(Y - 1).ThermalConductivity) /
+                        (Lubricant11(Y).Temperature - Lubricant11(Y - 1).Temperature) *
+                        (Lubricant11(Y).Temperature - t)
+                End If
+            Case 3
                 X = UBound(Lubricant14)
                 Y = LBound(Lubricant14)
                 If t > Lubricant14(X).Temperature Or t < Lubricant14(Y).Temperature Then
@@ -161,6 +246,34 @@
                         (Water(Y).Temperature - t)
                 End If
             Case 1
+                X = UBound(Air)
+                Y = LBound(Air)
+                If t > Air(X).Temperature Or t < Air(Y).Temperature Then
+                    MsgBox("流体温度超出计算范围，请重新输入",, "提示")
+                Else
+                    While (t >= Air(Y).Temperature)
+                        Y = Y + 1
+                    End While
+                    Temp = (Air(Y).Density) -
+                        (Air(Y).Density - Air(Y - 1).Density) /
+                        (Air(Y).Temperature - Air(Y - 1).Temperature) *
+                        (Air(Y).Temperature - t)
+                End If
+            Case 2
+                X = UBound(Lubricant11)
+                Y = LBound(Lubricant11)
+                If t > Lubricant11(X).Temperature Or t < Lubricant11(Y).Temperature Then
+                    MsgBox("流体温度超出计算范围，请重新输入",, "提示")
+                Else
+                    While (t >= Lubricant11(Y).Temperature)
+                        Y = Y + 1
+                    End While
+                    Temp = (Lubricant11(Y).Density) -
+                        (Lubricant11(Y).Density - Lubricant11(Y - 1).Density) /
+                        (Lubricant11(Y).Temperature - Lubricant11(Y - 1).Temperature) *
+                        (Lubricant11(Y).Temperature - t)
+                End If
+            Case 3
                 X = UBound(Lubricant14)
                 Y = LBound(Lubricant14)
                 If t > Lubricant14(X).Temperature Or t < Lubricant14(Y).Temperature Then
@@ -198,6 +311,34 @@
                         (Water(Y).Temperature - t)
                 End If
             Case 1
+                X = UBound(Air)
+                Y = LBound(Air)
+                If t > Air(X).Temperature Or t < Air(Y).Temperature Then
+                    MsgBox("流体温度超出计算范围，请重新输入",, "提示")
+                Else
+                    While (t >= Air(Y).Temperature)
+                        Y = Y + 1
+                    End While
+                    Temp = (Air(Y).KineticViscosity) -
+                        (Air(Y).KineticViscosity - Air(Y - 1).KineticViscosity) /
+                        (Air(Y).Temperature - Air(Y - 1).Temperature) *
+                        (Air(Y).Temperature - t)
+                End If
+            Case 2
+                X = UBound(Lubricant11)
+                Y = LBound(Lubricant11)
+                If t > Lubricant11(X).Temperature Or t < Lubricant11(Y).Temperature Then
+                    MsgBox("流体温度超出计算范围，请重新输入",, "提示")
+                Else
+                    While (t >= Lubricant11(Y).Temperature)
+                        Y = Y + 1
+                    End While
+                    Temp = (Lubricant11(Y).KineticViscosity) -
+                        (Lubricant11(Y).KineticViscosity - Lubricant11(Y - 1).KineticViscosity) /
+                        (Lubricant11(Y).Temperature - Lubricant11(Y - 1).Temperature) *
+                        (Lubricant11(Y).Temperature - t)
+                End If
+            Case 3
                 X = UBound(Lubricant14)
                 Y = LBound(Lubricant14)
                 If t > Lubricant14(X).Temperature Or t < Lubricant14(Y).Temperature Then
@@ -235,6 +376,34 @@
                         (Water(Y).Temperature - t)
                 End If
             Case 1
+                X = UBound(Air)
+                Y = LBound(Air)
+                If t > Air(X).Temperature Or t < Air(Y).Temperature Then
+                    MsgBox("流体温度超出计算范围，请重新输入",, "提示")
+                Else
+                    While (t >= Air(Y).Temperature)
+                        Y = Y + 1
+                    End While
+                    Temp = (Air(Y).PrandtlNumber) -
+                        (Air(Y).PrandtlNumber - Air(Y - 1).PrandtlNumber) /
+                        (Air(Y).Temperature - Air(Y - 1).Temperature) *
+                        (Air(Y).Temperature - t)
+                End If
+            Case 2
+                X = UBound(Lubricant11)
+                Y = LBound(Lubricant11)
+                If t > Lubricant11(X).Temperature Or t < Lubricant11(Y).Temperature Then
+                    MsgBox("流体温度超出计算范围，请重新输入",, "提示")
+                Else
+                    While (t >= Lubricant11(Y).Temperature)
+                        Y = Y + 1
+                    End While
+                    Temp = (Lubricant11(Y).PrandtlNumber) -
+                        (Lubricant11(Y).PrandtlNumber - Lubricant11(Y - 1).PrandtlNumber) /
+                        (Lubricant11(Y).Temperature - Lubricant11(Y - 1).Temperature) *
+                        (Lubricant11(Y).Temperature - t)
+                End If
+            Case 3
                 X = UBound(Lubricant14)
                 Y = LBound(Lubricant14)
                 If t > Lubricant14(X).Temperature Or t < Lubricant14(Y).Temperature Then

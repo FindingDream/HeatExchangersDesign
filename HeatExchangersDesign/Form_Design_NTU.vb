@@ -91,13 +91,13 @@
             Return
         End If
 
-        If TextBox_ThermalConductivity.Text = Nothing Then
+        If TextBox_ThermalConductivity.Text = Nothing Or TextBox_ThermalConductivity.Text = "0" Then
             TextBox_OverallHeatTransferCoefficient.Text = Format((1.0 / (Val(TextBox_OuterTubeDiameter.Text) / Val(TextBox_InnerTubeDiameter.Text) / Val(TextBox_Tube_h.Text) +
                 1.0 / Val(TextBox_Shell_h.Text))), "#.##")
         Else
             TextBox_OverallHeatTransferCoefficient.Text = Format((1.0 / (Val(TextBox_OuterTubeDiameter.Text) / Val(TextBox_InnerTubeDiameter.Text) / Val(TextBox_Tube_h.Text) +
                 1.0 / Val(TextBox_Shell_h.Text) +
-                Val(TextBox_OuterTubeDiameter.Text) / 2.0 / Val(TextBox_ThermalConductivity.Text) * System.Math.Log(Val(TextBox_OuterTubeDiameter.Text) / Val(TextBox_InnerTubeDiameter.Text)))), "#.##")
+                Val(TextBox_OuterTubeDiameter.Text) / 2000.0 / Val(TextBox_ThermalConductivity.Text) * System.Math.Log(Val(TextBox_OuterTubeDiameter.Text) / Val(TextBox_InnerTubeDiameter.Text)))), "#.##")
         End If
 
         Dim Cr, Effectiveness As Single
