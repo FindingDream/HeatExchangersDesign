@@ -115,14 +115,17 @@
                 Math.Log(Max(Math.Abs(Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)), Math.Abs(Val(TextBox_Shell_outTemperature.Text) - Val(TextBox_Tube_inTemperature.Text))) /
                 Min(Math.Abs(Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)), Math.Abs(Val(TextBox_Shell_outTemperature.Text) - Val(TextBox_Tube_inTemperature.Text)))), "#.##")
         Else
-            Dim P, R As Single
-            P = (Val(TextBox_Tube_outTemperature.Text) - Val(TextBox_Tube_inTemperature.Text)) / (Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Tube_inTemperature.Text))
-            R = (Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Shell_outTemperature.Text)) / (Val(TextBox_Tube_outTemperature.Text) - Val(TextBox_Tube_inTemperature.Text))
-
-            TextBox_TemperatureDifference.Text = Format((Max(Math.Abs(Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)), Math.Abs(Val(TextBox_Shell_outTemperature.Text) - Val(TextBox_Tube_inTemperature.Text))) -
+            Dim Coefficient As Single
+            Coefficient = TemperatureModify(Val(TextBox_Tube_inTemperature.Text), Val(TextBox_Tube_outTemperature.Text),
+                                          Val(TextBox_Shell_inTemperature.Text), Val(TextBox_Shell_outTemperature.Text))
+            If Coefficient = 0 Then
+                Return
+            Else
+                TextBox_TemperatureDifference.Text = Format(((Max(Math.Abs(Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)), Math.Abs(Val(TextBox_Shell_outTemperature.Text) - Val(TextBox_Tube_inTemperature.Text))) -
                 Min(Math.Abs(Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)), Math.Abs(Val(TextBox_Shell_outTemperature.Text) - Val(TextBox_Tube_inTemperature.Text)))) /
                 Math.Log(Max(Math.Abs(Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)), Math.Abs(Val(TextBox_Shell_outTemperature.Text) - Val(TextBox_Tube_inTemperature.Text))) /
-                Min(Math.Abs(Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)), Math.Abs(Val(TextBox_Shell_outTemperature.Text) - Val(TextBox_Tube_inTemperature.Text)))), "#.##")
+                Min(Math.Abs(Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)), Math.Abs(Val(TextBox_Shell_outTemperature.Text) - Val(TextBox_Tube_inTemperature.Text))))) * Coefficient, "#.##")
+            End If
         End If
 
         TextBox_HeatTransferArea.Text = Format((Math.Abs(Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)) * Val(TextBox_Tube_Flux.Text) * Cp_Tube * 1000 / Val(TextBox_TemperatureDifference.Text) / Val(TextBox_OverallHeatTransferCoefficient.Text) / 3.6), "#.##")
