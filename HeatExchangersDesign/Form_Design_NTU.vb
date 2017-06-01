@@ -100,29 +100,32 @@
                 Val(TextBox_OuterTubeDiameter.Text) / 2000.0 / Val(TextBox_ThermalConductivity.Text) * System.Math.Log(Val(TextBox_OuterTubeDiameter.Text) / Val(TextBox_InnerTubeDiameter.Text)))), "#.##")
         End If
 
-        Dim Cr, Effectiveness As Single
+        Dim Cr As Single
         If Cp_Shell * Val(TextBox_Shell_Flux.Text) > Cp_Tube * Val(TextBox_Tube_Flux.Text) Then
             Cr = (Cp_Tube * Val(TextBox_Tube_Flux.Text)) / (Cp_Shell * Val(TextBox_Shell_Flux.Text))
-            Effectiveness = Math.Abs(Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)) /
-                Math.Abs(Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Shell_inTemperature.Text))
+            TextBox_Effectiveness.Text = Format(Math.Abs(Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)) /
+                Math.Abs(Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Shell_inTemperature.Text)), "#.##")
         Else
             Cr = (Cp_Shell * Val(TextBox_Shell_Flux.Text)) / (Cp_Tube * Val(TextBox_Tube_Flux.Text))
-            Effectiveness = Math.Abs(Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Shell_outTemperature.Text)) /
-                Math.Abs(Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Shell_inTemperature.Text))
+            TextBox_Effectiveness.Text = Format(Math.Abs(Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Shell_outTemperature.Text)) /
+                Math.Abs(Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Shell_inTemperature.Text)), "#.##")
         End If
 
-        Dim NTU As Single
-        If ComboBox_FlowType.Text = "顺流" Then
-            NTU = -Math.Log(1 - Effectiveness * (1 + Cr)) / (1 + Cr)
-        Else
+        If ComboBox_FlowType.Text = "纯顺流" Then
+            TextBox_NTU.Text = Format(-Math.Log(1 - Val(TextBox_Effectiveness.Text) * (1 + Cr)) / (1 + Cr), "#.##")
+        ElseIf ComboBox_FlowType.Text = "纯逆流" Then
             If Cr = 1 Then
-                NTU = Effectiveness / (1 - Effectiveness)
+                TextBox_NTU.Text = Format(Val(TextBox_Effectiveness.Text) / (1 - Val(TextBox_Effectiveness.Text)), "#.##")
             Else
-                NTU = Math.Log((1 - Effectiveness) / (1 - Effectiveness * Cr)) / (Cr - 1)
+                TextBox_NTU.Text = Format(Math.Log((1 - Val(TextBox_Effectiveness.Text)) / (1 - Val(TextBox_Effectiveness.Text) * Cr)) / (Cr - 1), "#.##")
             End If
+        Else
+
+            '其他流动形式待补充
+
         End If
 
-        TextBox_HeatTransferArea.Text = Format(NTU * Min(Cp_Shell * Val(TextBox_Shell_Flux.Text), Cp_Tube * Val(TextBox_Tube_Flux.Text)) * 1000 /
+        TextBox_HeatTransferArea.Text = Format(Val(TextBox_NTU.Text) * Min(Cp_Shell * Val(TextBox_Shell_Flux.Text), Cp_Tube * Val(TextBox_Tube_Flux.Text)) * 1000 /
             3.6 / (TextBox_OverallHeatTransferCoefficient.Text), "#.##")
     End Sub
 End Class

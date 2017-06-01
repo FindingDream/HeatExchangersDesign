@@ -43,6 +43,10 @@ Partial Class Form_Design_LMTD
         Me.TextBox_Shell_inTemperature = New System.Windows.Forms.TextBox()
         Me.Label_Shell_inTemperature = New System.Windows.Forms.Label()
         Me.GroupBox_SurfaceArrangement = New System.Windows.Forms.GroupBox()
+        Me.TextBox_Shell_Rf = New System.Windows.Forms.TextBox()
+        Me.Label_Shell_Rf = New System.Windows.Forms.Label()
+        Me.TextBox_Tube_Rf = New System.Windows.Forms.TextBox()
+        Me.Label_Tube_Rf = New System.Windows.Forms.Label()
         Me.TextBox_TemperatureDifference = New System.Windows.Forms.TextBox()
         Me.Label_TemperatureDifference = New System.Windows.Forms.Label()
         Me.ComboBox_FlowType = New System.Windows.Forms.ComboBox()
@@ -61,10 +65,6 @@ Partial Class Form_Design_LMTD
         Me.Label_HeatTransferArea = New System.Windows.Forms.Label()
         Me.TextBox_OverallHeatTransferCoefficient = New System.Windows.Forms.TextBox()
         Me.Label_OverallHeatTransferCoefficient = New System.Windows.Forms.Label()
-        Me.TextBox_Tube_Rf = New System.Windows.Forms.TextBox()
-        Me.Label_Tube_Rf = New System.Windows.Forms.Label()
-        Me.TextBox_Shell_Rf = New System.Windows.Forms.TextBox()
-        Me.Label_Shell_Rf = New System.Windows.Forms.Label()
         Me.GroupBox_Tube.SuspendLayout()
         Me.GroupBox_Shell.SuspendLayout()
         Me.GroupBox_SurfaceArrangement.SuspendLayout()
@@ -72,7 +72,8 @@ Partial Class Form_Design_LMTD
         '
         'Button_Calculate
         '
-        Me.Button_Calculate.Location = New System.Drawing.Point(144, 478)
+        Me.Button_Calculate.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button_Calculate.Location = New System.Drawing.Point(221, 543)
         Me.Button_Calculate.Name = "Button_Calculate"
         Me.Button_Calculate.Size = New System.Drawing.Size(86, 32)
         Me.Button_Calculate.TabIndex = 0
@@ -81,7 +82,8 @@ Partial Class Form_Design_LMTD
         '
         'Button_Clean
         '
-        Me.Button_Clean.Location = New System.Drawing.Point(338, 478)
+        Me.Button_Clean.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button_Clean.Location = New System.Drawing.Point(415, 543)
         Me.Button_Clean.Name = "Button_Clean"
         Me.Button_Clean.Size = New System.Drawing.Size(86, 32)
         Me.Button_Clean.TabIndex = 1
@@ -100,7 +102,7 @@ Partial Class Form_Design_LMTD
         Me.GroupBox_Tube.Controls.Add(Me.Label_Tube_inTemperature)
         Me.GroupBox_Tube.Location = New System.Drawing.Point(31, 25)
         Me.GroupBox_Tube.Name = "GroupBox_Tube"
-        Me.GroupBox_Tube.Size = New System.Drawing.Size(205, 153)
+        Me.GroupBox_Tube.Size = New System.Drawing.Size(260, 177)
         Me.GroupBox_Tube.TabIndex = 2
         Me.GroupBox_Tube.TabStop = False
         Me.GroupBox_Tube.Text = "管侧"
@@ -108,70 +110,78 @@ Partial Class Form_Design_LMTD
         'ComboBox_Tube_Fluid
         '
         Me.ComboBox_Tube_Fluid.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox_Tube_Fluid.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.ComboBox_Tube_Fluid.FormattingEnabled = True
         Me.ComboBox_Tube_Fluid.Items.AddRange(New Object() {"水", "干空气", "11号润滑油", "14号润滑油"})
-        Me.ComboBox_Tube_Fluid.Location = New System.Drawing.Point(84, 25)
+        Me.ComboBox_Tube_Fluid.Location = New System.Drawing.Point(123, 21)
         Me.ComboBox_Tube_Fluid.Name = "ComboBox_Tube_Fluid"
-        Me.ComboBox_Tube_Fluid.Size = New System.Drawing.Size(85, 20)
+        Me.ComboBox_Tube_Fluid.Size = New System.Drawing.Size(120, 27)
         Me.ComboBox_Tube_Fluid.TabIndex = 0
         '
         'TextBox_Tube_Flux
         '
-        Me.TextBox_Tube_Flux.Location = New System.Drawing.Point(112, 51)
+        Me.TextBox_Tube_Flux.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_Tube_Flux.Location = New System.Drawing.Point(175, 58)
         Me.TextBox_Tube_Flux.Name = "TextBox_Tube_Flux"
-        Me.TextBox_Tube_Flux.Size = New System.Drawing.Size(57, 21)
+        Me.TextBox_Tube_Flux.Size = New System.Drawing.Size(68, 29)
         Me.TextBox_Tube_Flux.TabIndex = 1
         Me.TextBox_Tube_Flux.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label_Tube_Flux
         '
         Me.Label_Tube_Flux.AutoSize = True
-        Me.Label_Tube_Flux.Location = New System.Drawing.Point(6, 54)
+        Me.Label_Tube_Flux.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_Tube_Flux.Location = New System.Drawing.Point(11, 65)
         Me.Label_Tube_Flux.Name = "Label_Tube_Flux"
-        Me.Label_Tube_Flux.Size = New System.Drawing.Size(83, 12)
+        Me.Label_Tube_Flux.Size = New System.Drawing.Size(144, 19)
         Me.Label_Tube_Flux.TabIndex = 6
         Me.Label_Tube_Flux.Text = "流体流量(t/h)"
         '
         'Label_Tube_Fluid
         '
         Me.Label_Tube_Fluid.AutoSize = True
-        Me.Label_Tube_Fluid.Location = New System.Drawing.Point(6, 28)
+        Me.Label_Tube_Fluid.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_Tube_Fluid.Location = New System.Drawing.Point(11, 28)
         Me.Label_Tube_Fluid.Name = "Label_Tube_Fluid"
-        Me.Label_Tube_Fluid.Size = New System.Drawing.Size(53, 12)
+        Me.Label_Tube_Fluid.Size = New System.Drawing.Size(89, 19)
         Me.Label_Tube_Fluid.TabIndex = 4
         Me.Label_Tube_Fluid.Text = "流体类别"
         '
         'TextBox_Tube_outTemperature
         '
-        Me.TextBox_Tube_outTemperature.Location = New System.Drawing.Point(112, 111)
+        Me.TextBox_Tube_outTemperature.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_Tube_outTemperature.Location = New System.Drawing.Point(175, 136)
         Me.TextBox_Tube_outTemperature.Name = "TextBox_Tube_outTemperature"
-        Me.TextBox_Tube_outTemperature.Size = New System.Drawing.Size(57, 21)
+        Me.TextBox_Tube_outTemperature.Size = New System.Drawing.Size(68, 29)
         Me.TextBox_Tube_outTemperature.TabIndex = 3
         Me.TextBox_Tube_outTemperature.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label_Tube_outTemperature
         '
         Me.Label_Tube_outTemperature.AutoSize = True
-        Me.Label_Tube_outTemperature.Location = New System.Drawing.Point(6, 114)
+        Me.Label_Tube_outTemperature.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_Tube_outTemperature.Location = New System.Drawing.Point(11, 139)
         Me.Label_Tube_outTemperature.Name = "Label_Tube_outTemperature"
-        Me.Label_Tube_outTemperature.Size = New System.Drawing.Size(77, 12)
+        Me.Label_Tube_outTemperature.Size = New System.Drawing.Size(131, 19)
         Me.Label_Tube_outTemperature.TabIndex = 2
         Me.Label_Tube_outTemperature.Text = "出口温度(℃)"
         '
         'TextBox_Tube_inTemperature
         '
-        Me.TextBox_Tube_inTemperature.Location = New System.Drawing.Point(112, 80)
+        Me.TextBox_Tube_inTemperature.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_Tube_inTemperature.Location = New System.Drawing.Point(175, 97)
         Me.TextBox_Tube_inTemperature.Name = "TextBox_Tube_inTemperature"
-        Me.TextBox_Tube_inTemperature.Size = New System.Drawing.Size(57, 21)
+        Me.TextBox_Tube_inTemperature.Size = New System.Drawing.Size(68, 29)
         Me.TextBox_Tube_inTemperature.TabIndex = 2
         Me.TextBox_Tube_inTemperature.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label_Tube_inTemperature
         '
         Me.Label_Tube_inTemperature.AutoSize = True
-        Me.Label_Tube_inTemperature.Location = New System.Drawing.Point(6, 83)
+        Me.Label_Tube_inTemperature.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_Tube_inTemperature.Location = New System.Drawing.Point(11, 102)
         Me.Label_Tube_inTemperature.Name = "Label_Tube_inTemperature"
-        Me.Label_Tube_inTemperature.Size = New System.Drawing.Size(77, 12)
+        Me.Label_Tube_inTemperature.Size = New System.Drawing.Size(131, 19)
         Me.Label_Tube_inTemperature.TabIndex = 0
         Me.Label_Tube_inTemperature.Text = "入口温度(℃)"
         '
@@ -185,9 +195,9 @@ Partial Class Form_Design_LMTD
         Me.GroupBox_Shell.Controls.Add(Me.Label_Shell_outTemperature)
         Me.GroupBox_Shell.Controls.Add(Me.TextBox_Shell_inTemperature)
         Me.GroupBox_Shell.Controls.Add(Me.Label_Shell_inTemperature)
-        Me.GroupBox_Shell.Location = New System.Drawing.Point(344, 25)
+        Me.GroupBox_Shell.Location = New System.Drawing.Point(442, 25)
         Me.GroupBox_Shell.Name = "GroupBox_Shell"
-        Me.GroupBox_Shell.Size = New System.Drawing.Size(205, 153)
+        Me.GroupBox_Shell.Size = New System.Drawing.Size(260, 177)
         Me.GroupBox_Shell.TabIndex = 3
         Me.GroupBox_Shell.TabStop = False
         Me.GroupBox_Shell.Text = "壳侧"
@@ -195,70 +205,78 @@ Partial Class Form_Design_LMTD
         'ComboBox_Shell_Fluid
         '
         Me.ComboBox_Shell_Fluid.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox_Shell_Fluid.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.ComboBox_Shell_Fluid.FormattingEnabled = True
         Me.ComboBox_Shell_Fluid.Items.AddRange(New Object() {"水", "干空气", "11号润滑油", "14号润滑油"})
-        Me.ComboBox_Shell_Fluid.Location = New System.Drawing.Point(84, 25)
+        Me.ComboBox_Shell_Fluid.Location = New System.Drawing.Point(123, 21)
         Me.ComboBox_Shell_Fluid.Name = "ComboBox_Shell_Fluid"
-        Me.ComboBox_Shell_Fluid.Size = New System.Drawing.Size(85, 20)
+        Me.ComboBox_Shell_Fluid.Size = New System.Drawing.Size(120, 27)
         Me.ComboBox_Shell_Fluid.TabIndex = 0
         '
         'TextBox_Shell_Flux
         '
-        Me.TextBox_Shell_Flux.Location = New System.Drawing.Point(112, 51)
+        Me.TextBox_Shell_Flux.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_Shell_Flux.Location = New System.Drawing.Point(175, 58)
         Me.TextBox_Shell_Flux.Name = "TextBox_Shell_Flux"
-        Me.TextBox_Shell_Flux.Size = New System.Drawing.Size(57, 21)
+        Me.TextBox_Shell_Flux.Size = New System.Drawing.Size(68, 29)
         Me.TextBox_Shell_Flux.TabIndex = 1
         Me.TextBox_Shell_Flux.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label_Shell_Flux
         '
         Me.Label_Shell_Flux.AutoSize = True
-        Me.Label_Shell_Flux.Location = New System.Drawing.Point(6, 54)
+        Me.Label_Shell_Flux.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_Shell_Flux.Location = New System.Drawing.Point(14, 62)
         Me.Label_Shell_Flux.Name = "Label_Shell_Flux"
-        Me.Label_Shell_Flux.Size = New System.Drawing.Size(83, 12)
+        Me.Label_Shell_Flux.Size = New System.Drawing.Size(144, 19)
         Me.Label_Shell_Flux.TabIndex = 6
         Me.Label_Shell_Flux.Text = "流体流量(t/h)"
         '
         'Label_Shell_Fluid
         '
         Me.Label_Shell_Fluid.AutoSize = True
-        Me.Label_Shell_Fluid.Location = New System.Drawing.Point(6, 28)
+        Me.Label_Shell_Fluid.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_Shell_Fluid.Location = New System.Drawing.Point(14, 24)
         Me.Label_Shell_Fluid.Name = "Label_Shell_Fluid"
-        Me.Label_Shell_Fluid.Size = New System.Drawing.Size(53, 12)
+        Me.Label_Shell_Fluid.Size = New System.Drawing.Size(89, 19)
         Me.Label_Shell_Fluid.TabIndex = 4
         Me.Label_Shell_Fluid.Text = "流体类别"
         '
         'TextBox_Shell_outTemperature
         '
-        Me.TextBox_Shell_outTemperature.Location = New System.Drawing.Point(112, 111)
+        Me.TextBox_Shell_outTemperature.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_Shell_outTemperature.Location = New System.Drawing.Point(175, 136)
         Me.TextBox_Shell_outTemperature.Name = "TextBox_Shell_outTemperature"
-        Me.TextBox_Shell_outTemperature.Size = New System.Drawing.Size(57, 21)
+        Me.TextBox_Shell_outTemperature.Size = New System.Drawing.Size(68, 29)
         Me.TextBox_Shell_outTemperature.TabIndex = 3
         Me.TextBox_Shell_outTemperature.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label_Shell_outTemperature
         '
         Me.Label_Shell_outTemperature.AutoSize = True
-        Me.Label_Shell_outTemperature.Location = New System.Drawing.Point(6, 114)
+        Me.Label_Shell_outTemperature.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_Shell_outTemperature.Location = New System.Drawing.Point(14, 138)
         Me.Label_Shell_outTemperature.Name = "Label_Shell_outTemperature"
-        Me.Label_Shell_outTemperature.Size = New System.Drawing.Size(77, 12)
+        Me.Label_Shell_outTemperature.Size = New System.Drawing.Size(131, 19)
         Me.Label_Shell_outTemperature.TabIndex = 2
         Me.Label_Shell_outTemperature.Text = "出口温度(℃)"
         '
         'TextBox_Shell_inTemperature
         '
-        Me.TextBox_Shell_inTemperature.Location = New System.Drawing.Point(112, 80)
+        Me.TextBox_Shell_inTemperature.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_Shell_inTemperature.Location = New System.Drawing.Point(175, 97)
         Me.TextBox_Shell_inTemperature.Name = "TextBox_Shell_inTemperature"
-        Me.TextBox_Shell_inTemperature.Size = New System.Drawing.Size(57, 21)
+        Me.TextBox_Shell_inTemperature.Size = New System.Drawing.Size(68, 29)
         Me.TextBox_Shell_inTemperature.TabIndex = 2
         Me.TextBox_Shell_inTemperature.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label_Shell_inTemperature
         '
         Me.Label_Shell_inTemperature.AutoSize = True
-        Me.Label_Shell_inTemperature.Location = New System.Drawing.Point(6, 83)
+        Me.Label_Shell_inTemperature.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_Shell_inTemperature.Location = New System.Drawing.Point(14, 100)
         Me.Label_Shell_inTemperature.Name = "Label_Shell_inTemperature"
-        Me.Label_Shell_inTemperature.Size = New System.Drawing.Size(77, 12)
+        Me.Label_Shell_inTemperature.Size = New System.Drawing.Size(131, 19)
         Me.Label_Shell_inTemperature.TabIndex = 0
         Me.Label_Shell_inTemperature.Text = "入口温度(℃)"
         '
@@ -286,141 +304,194 @@ Partial Class Form_Design_LMTD
         Me.GroupBox_SurfaceArrangement.Controls.Add(Me.Label_HeatTransferArea)
         Me.GroupBox_SurfaceArrangement.Controls.Add(Me.TextBox_OverallHeatTransferCoefficient)
         Me.GroupBox_SurfaceArrangement.Controls.Add(Me.Label_OverallHeatTransferCoefficient)
-        Me.GroupBox_SurfaceArrangement.Location = New System.Drawing.Point(31, 204)
+        Me.GroupBox_SurfaceArrangement.Location = New System.Drawing.Point(31, 234)
         Me.GroupBox_SurfaceArrangement.Name = "GroupBox_SurfaceArrangement"
-        Me.GroupBox_SurfaceArrangement.Size = New System.Drawing.Size(518, 254)
+        Me.GroupBox_SurfaceArrangement.Size = New System.Drawing.Size(671, 277)
         Me.GroupBox_SurfaceArrangement.TabIndex = 4
         Me.GroupBox_SurfaceArrangement.TabStop = False
         Me.GroupBox_SurfaceArrangement.Text = "换热面布置"
         '
+        'TextBox_Shell_Rf
+        '
+        Me.TextBox_Shell_Rf.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_Shell_Rf.Location = New System.Drawing.Point(586, 129)
+        Me.TextBox_Shell_Rf.Name = "TextBox_Shell_Rf"
+        Me.TextBox_Shell_Rf.Size = New System.Drawing.Size(68, 29)
+        Me.TextBox_Shell_Rf.TabIndex = 19
+        Me.TextBox_Shell_Rf.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label_Shell_Rf
+        '
+        Me.Label_Shell_Rf.AutoSize = True
+        Me.Label_Shell_Rf.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_Shell_Rf.Location = New System.Drawing.Point(290, 132)
+        Me.Label_Shell_Rf.Name = "Label_Shell_Rf"
+        Me.Label_Shell_Rf.Size = New System.Drawing.Size(224, 19)
+        Me.Label_Shell_Rf.TabIndex = 20
+        Me.Label_Shell_Rf.Text = "壳侧污垢热阻(㎡·K/W)"
+        '
+        'TextBox_Tube_Rf
+        '
+        Me.TextBox_Tube_Rf.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_Tube_Rf.Location = New System.Drawing.Point(586, 59)
+        Me.TextBox_Tube_Rf.Name = "TextBox_Tube_Rf"
+        Me.TextBox_Tube_Rf.Size = New System.Drawing.Size(68, 29)
+        Me.TextBox_Tube_Rf.TabIndex = 17
+        Me.TextBox_Tube_Rf.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label_Tube_Rf
+        '
+        Me.Label_Tube_Rf.AutoSize = True
+        Me.Label_Tube_Rf.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_Tube_Rf.Location = New System.Drawing.Point(290, 62)
+        Me.Label_Tube_Rf.Name = "Label_Tube_Rf"
+        Me.Label_Tube_Rf.Size = New System.Drawing.Size(224, 19)
+        Me.Label_Tube_Rf.TabIndex = 18
+        Me.Label_Tube_Rf.Text = "管侧污垢热阻(㎡·K/W)"
+        '
         'TextBox_TemperatureDifference
         '
-        Me.TextBox_TemperatureDifference.Location = New System.Drawing.Point(116, 155)
+        Me.TextBox_TemperatureDifference.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_TemperatureDifference.Location = New System.Drawing.Point(181, 163)
         Me.TextBox_TemperatureDifference.Name = "TextBox_TemperatureDifference"
         Me.TextBox_TemperatureDifference.ReadOnly = True
-        Me.TextBox_TemperatureDifference.Size = New System.Drawing.Size(72, 21)
+        Me.TextBox_TemperatureDifference.Size = New System.Drawing.Size(68, 29)
         Me.TextBox_TemperatureDifference.TabIndex = 16
         Me.TextBox_TemperatureDifference.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label_TemperatureDifference
         '
         Me.Label_TemperatureDifference.AutoSize = True
-        Me.Label_TemperatureDifference.Location = New System.Drawing.Point(10, 159)
+        Me.Label_TemperatureDifference.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_TemperatureDifference.Location = New System.Drawing.Point(10, 167)
         Me.Label_TemperatureDifference.Name = "Label_TemperatureDifference"
-        Me.Label_TemperatureDifference.Size = New System.Drawing.Size(77, 12)
+        Me.Label_TemperatureDifference.Size = New System.Drawing.Size(131, 19)
         Me.Label_TemperatureDifference.TabIndex = 15
         Me.Label_TemperatureDifference.Text = "平均温差(℃)"
         '
         'ComboBox_FlowType
         '
         Me.ComboBox_FlowType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox_FlowType.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.ComboBox_FlowType.FormattingEnabled = True
         Me.ComboBox_FlowType.Items.AddRange(New Object() {"纯逆流", "纯顺流", "其他形式"})
-        Me.ComboBox_FlowType.Location = New System.Drawing.Point(115, 24)
+        Me.ComboBox_FlowType.Location = New System.Drawing.Point(146, 24)
         Me.ComboBox_FlowType.Name = "ComboBox_FlowType"
-        Me.ComboBox_FlowType.Size = New System.Drawing.Size(73, 20)
+        Me.ComboBox_FlowType.Size = New System.Drawing.Size(103, 27)
         Me.ComboBox_FlowType.TabIndex = 14
         '
         'Label_FlowType
         '
         Me.Label_FlowType.AutoSize = True
-        Me.Label_FlowType.Location = New System.Drawing.Point(10, 27)
+        Me.Label_FlowType.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_FlowType.Location = New System.Drawing.Point(11, 27)
         Me.Label_FlowType.Name = "Label_FlowType"
-        Me.Label_FlowType.Size = New System.Drawing.Size(77, 12)
+        Me.Label_FlowType.Size = New System.Drawing.Size(129, 19)
         Me.Label_FlowType.TabIndex = 13
         Me.Label_FlowType.Text = "流体流动方式"
         '
         'TextBox_ThermalConductivity
         '
-        Me.TextBox_ThermalConductivity.Location = New System.Drawing.Point(435, 156)
+        Me.TextBox_ThermalConductivity.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_ThermalConductivity.Location = New System.Drawing.Point(586, 164)
         Me.TextBox_ThermalConductivity.Name = "TextBox_ThermalConductivity"
-        Me.TextBox_ThermalConductivity.Size = New System.Drawing.Size(60, 21)
+        Me.TextBox_ThermalConductivity.Size = New System.Drawing.Size(68, 29)
         Me.TextBox_ThermalConductivity.TabIndex = 5
         Me.TextBox_ThermalConductivity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label_ThermalConductivity
         '
         Me.Label_ThermalConductivity.AutoSize = True
-        Me.Label_ThermalConductivity.Location = New System.Drawing.Point(253, 159)
+        Me.Label_ThermalConductivity.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_ThermalConductivity.Location = New System.Drawing.Point(290, 167)
         Me.Label_ThermalConductivity.Name = "Label_ThermalConductivity"
-        Me.Label_ThermalConductivity.Size = New System.Drawing.Size(137, 12)
+        Me.Label_ThermalConductivity.Size = New System.Drawing.Size(237, 19)
         Me.Label_ThermalConductivity.TabIndex = 12
         Me.Label_ThermalConductivity.Text = "管壁导热系数(W/(m·K))"
         '
         'TextBox_Tube_h
         '
-        Me.TextBox_Tube_h.Location = New System.Drawing.Point(435, 24)
+        Me.TextBox_Tube_h.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_Tube_h.Location = New System.Drawing.Point(586, 24)
         Me.TextBox_Tube_h.Name = "TextBox_Tube_h"
-        Me.TextBox_Tube_h.Size = New System.Drawing.Size(60, 21)
+        Me.TextBox_Tube_h.Size = New System.Drawing.Size(68, 29)
         Me.TextBox_Tube_h.TabIndex = 6
         Me.TextBox_Tube_h.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label_Tube_h
         '
         Me.Label_Tube_h.AutoSize = True
-        Me.Label_Tube_h.Location = New System.Drawing.Point(253, 27)
+        Me.Label_Tube_h.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_Tube_h.Location = New System.Drawing.Point(290, 27)
         Me.Label_Tube_h.Name = "Label_Tube_h"
-        Me.Label_Tube_h.Size = New System.Drawing.Size(167, 12)
+        Me.Label_Tube_h.Size = New System.Drawing.Size(286, 19)
         Me.Label_Tube_h.TabIndex = 10
         Me.Label_Tube_h.Text = "管侧对流换热系数(W/(㎡·K))"
         '
         'TextBox_Shell_h
         '
-        Me.TextBox_Shell_h.Location = New System.Drawing.Point(435, 90)
+        Me.TextBox_Shell_h.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_Shell_h.Location = New System.Drawing.Point(586, 94)
         Me.TextBox_Shell_h.Name = "TextBox_Shell_h"
-        Me.TextBox_Shell_h.Size = New System.Drawing.Size(60, 21)
+        Me.TextBox_Shell_h.Size = New System.Drawing.Size(68, 29)
         Me.TextBox_Shell_h.TabIndex = 4
         Me.TextBox_Shell_h.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label_Shell_h
         '
         Me.Label_Shell_h.AutoSize = True
-        Me.Label_Shell_h.Location = New System.Drawing.Point(253, 93)
+        Me.Label_Shell_h.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_Shell_h.Location = New System.Drawing.Point(290, 97)
         Me.Label_Shell_h.Name = "Label_Shell_h"
-        Me.Label_Shell_h.Size = New System.Drawing.Size(167, 12)
+        Me.Label_Shell_h.Size = New System.Drawing.Size(286, 19)
         Me.Label_Shell_h.TabIndex = 8
         Me.Label_Shell_h.Text = "壳侧对流换热系数(W/(㎡·K))"
         '
         'TextBox_OuterTubeDiameter
         '
-        Me.TextBox_OuterTubeDiameter.Location = New System.Drawing.Point(116, 111)
+        Me.TextBox_OuterTubeDiameter.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_OuterTubeDiameter.Location = New System.Drawing.Point(181, 116)
         Me.TextBox_OuterTubeDiameter.Name = "TextBox_OuterTubeDiameter"
-        Me.TextBox_OuterTubeDiameter.Size = New System.Drawing.Size(72, 21)
+        Me.TextBox_OuterTubeDiameter.Size = New System.Drawing.Size(68, 29)
         Me.TextBox_OuterTubeDiameter.TabIndex = 3
         Me.TextBox_OuterTubeDiameter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label_OuterTubeDiameter
         '
         Me.Label_OuterTubeDiameter.AutoSize = True
-        Me.Label_OuterTubeDiameter.Location = New System.Drawing.Point(10, 115)
+        Me.Label_OuterTubeDiameter.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_OuterTubeDiameter.Location = New System.Drawing.Point(11, 119)
         Me.Label_OuterTubeDiameter.Name = "Label_OuterTubeDiameter"
-        Me.Label_OuterTubeDiameter.Size = New System.Drawing.Size(65, 12)
+        Me.Label_OuterTubeDiameter.Size = New System.Drawing.Size(113, 19)
         Me.Label_OuterTubeDiameter.TabIndex = 6
         Me.Label_OuterTubeDiameter.Text = "外管径(mm)"
         '
         'TextBox_InnerTubeDiameter
         '
-        Me.TextBox_InnerTubeDiameter.Location = New System.Drawing.Point(116, 67)
+        Me.TextBox_InnerTubeDiameter.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_InnerTubeDiameter.Location = New System.Drawing.Point(181, 69)
         Me.TextBox_InnerTubeDiameter.Name = "TextBox_InnerTubeDiameter"
-        Me.TextBox_InnerTubeDiameter.Size = New System.Drawing.Size(72, 21)
+        Me.TextBox_InnerTubeDiameter.Size = New System.Drawing.Size(68, 29)
         Me.TextBox_InnerTubeDiameter.TabIndex = 2
         Me.TextBox_InnerTubeDiameter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label_InnerTubeDiameter
         '
         Me.Label_InnerTubeDiameter.AutoSize = True
-        Me.Label_InnerTubeDiameter.Location = New System.Drawing.Point(10, 71)
+        Me.Label_InnerTubeDiameter.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_InnerTubeDiameter.Location = New System.Drawing.Point(11, 72)
         Me.Label_InnerTubeDiameter.Name = "Label_InnerTubeDiameter"
-        Me.Label_InnerTubeDiameter.Size = New System.Drawing.Size(65, 12)
+        Me.Label_InnerTubeDiameter.Size = New System.Drawing.Size(113, 19)
         Me.Label_InnerTubeDiameter.TabIndex = 4
         Me.Label_InnerTubeDiameter.Text = "内管径(mm)"
         '
         'TextBox_HeatTransferArea
         '
-        Me.TextBox_HeatTransferArea.Location = New System.Drawing.Point(415, 213)
+        Me.TextBox_HeatTransferArea.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_HeatTransferArea.Location = New System.Drawing.Point(570, 231)
         Me.TextBox_HeatTransferArea.Name = "TextBox_HeatTransferArea"
         Me.TextBox_HeatTransferArea.ReadOnly = True
-        Me.TextBox_HeatTransferArea.Size = New System.Drawing.Size(80, 21)
+        Me.TextBox_HeatTransferArea.Size = New System.Drawing.Size(80, 29)
         Me.TextBox_HeatTransferArea.TabIndex = 8
         Me.TextBox_HeatTransferArea.TabStop = False
         Me.TextBox_HeatTransferArea.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -428,18 +499,20 @@ Partial Class Form_Design_LMTD
         'Label_HeatTransferArea
         '
         Me.Label_HeatTransferArea.AutoSize = True
-        Me.Label_HeatTransferArea.Location = New System.Drawing.Point(308, 217)
+        Me.Label_HeatTransferArea.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_HeatTransferArea.Location = New System.Drawing.Point(433, 234)
         Me.Label_HeatTransferArea.Name = "Label_HeatTransferArea"
-        Me.Label_HeatTransferArea.Size = New System.Drawing.Size(77, 12)
+        Me.Label_HeatTransferArea.Size = New System.Drawing.Size(131, 19)
         Me.Label_HeatTransferArea.TabIndex = 2
         Me.Label_HeatTransferArea.Text = "换热面积(㎡)"
         '
         'TextBox_OverallHeatTransferCoefficient
         '
-        Me.TextBox_OverallHeatTransferCoefficient.Location = New System.Drawing.Point(172, 213)
+        Me.TextBox_OverallHeatTransferCoefficient.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_OverallHeatTransferCoefficient.Location = New System.Drawing.Point(243, 231)
         Me.TextBox_OverallHeatTransferCoefficient.Name = "TextBox_OverallHeatTransferCoefficient"
         Me.TextBox_OverallHeatTransferCoefficient.ReadOnly = True
-        Me.TextBox_OverallHeatTransferCoefficient.Size = New System.Drawing.Size(80, 21)
+        Me.TextBox_OverallHeatTransferCoefficient.Size = New System.Drawing.Size(80, 29)
         Me.TextBox_OverallHeatTransferCoefficient.TabIndex = 7
         Me.TextBox_OverallHeatTransferCoefficient.TabStop = False
         Me.TextBox_OverallHeatTransferCoefficient.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -447,51 +520,18 @@ Partial Class Form_Design_LMTD
         'Label_OverallHeatTransferCoefficient
         '
         Me.Label_OverallHeatTransferCoefficient.AutoSize = True
-        Me.Label_OverallHeatTransferCoefficient.Location = New System.Drawing.Point(10, 217)
+        Me.Label_OverallHeatTransferCoefficient.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_OverallHeatTransferCoefficient.Location = New System.Drawing.Point(11, 234)
         Me.Label_OverallHeatTransferCoefficient.Name = "Label_OverallHeatTransferCoefficient"
-        Me.Label_OverallHeatTransferCoefficient.Size = New System.Drawing.Size(131, 12)
+        Me.Label_OverallHeatTransferCoefficient.Size = New System.Drawing.Size(226, 19)
         Me.Label_OverallHeatTransferCoefficient.TabIndex = 0
         Me.Label_OverallHeatTransferCoefficient.Text = "总传热系数(W/(㎡·K))"
-        '
-        'TextBox_Tube_Rf
-        '
-        Me.TextBox_Tube_Rf.Location = New System.Drawing.Point(435, 57)
-        Me.TextBox_Tube_Rf.Name = "TextBox_Tube_Rf"
-        Me.TextBox_Tube_Rf.Size = New System.Drawing.Size(60, 21)
-        Me.TextBox_Tube_Rf.TabIndex = 17
-        Me.TextBox_Tube_Rf.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label_Tube_Rf
-        '
-        Me.Label_Tube_Rf.AutoSize = True
-        Me.Label_Tube_Rf.Location = New System.Drawing.Point(253, 60)
-        Me.Label_Tube_Rf.Name = "Label_Tube_Rf"
-        Me.Label_Tube_Rf.Size = New System.Drawing.Size(131, 12)
-        Me.Label_Tube_Rf.TabIndex = 18
-        Me.Label_Tube_Rf.Text = "管侧污垢热阻(㎡·K/W)"
-        '
-        'TextBox_Shell_Rf
-        '
-        Me.TextBox_Shell_Rf.Location = New System.Drawing.Point(435, 123)
-        Me.TextBox_Shell_Rf.Name = "TextBox_Shell_Rf"
-        Me.TextBox_Shell_Rf.Size = New System.Drawing.Size(60, 21)
-        Me.TextBox_Shell_Rf.TabIndex = 19
-        Me.TextBox_Shell_Rf.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'Label_Shell_Rf
-        '
-        Me.Label_Shell_Rf.AutoSize = True
-        Me.Label_Shell_Rf.Location = New System.Drawing.Point(253, 126)
-        Me.Label_Shell_Rf.Name = "Label_Shell_Rf"
-        Me.Label_Shell_Rf.Size = New System.Drawing.Size(131, 12)
-        Me.Label_Shell_Rf.TabIndex = 20
-        Me.Label_Shell_Rf.Text = "壳侧污垢热阻(㎡·K/W)"
         '
         'Form_Design_LMTD
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(584, 532)
+        Me.ClientSize = New System.Drawing.Size(729, 609)
         Me.Controls.Add(Me.GroupBox_SurfaceArrangement)
         Me.Controls.Add(Me.GroupBox_Shell)
         Me.Controls.Add(Me.GroupBox_Tube)

@@ -36,32 +36,34 @@ Partial Class MainForm
         '
         Me.GroupBox_Design.Controls.Add(Me.Button_Design_NTU)
         Me.GroupBox_Design.Controls.Add(Me.Button_Design_CMTD)
-        Me.GroupBox_Design.Font = New System.Drawing.Font("SimSun", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.GroupBox_Design.Font = New System.Drawing.Font("SimSun", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.GroupBox_Design.Location = New System.Drawing.Point(20, 14)
         Me.GroupBox_Design.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox_Design.Name = "GroupBox_Design"
         Me.GroupBox_Design.Padding = New System.Windows.Forms.Padding(5)
-        Me.GroupBox_Design.Size = New System.Drawing.Size(252, 89)
+        Me.GroupBox_Design.Size = New System.Drawing.Size(302, 89)
         Me.GroupBox_Design.TabIndex = 0
         Me.GroupBox_Design.TabStop = False
         Me.GroupBox_Design.Text = "设计计算"
         '
         'Button_Design_NTU
         '
-        Me.Button_Design_NTU.Location = New System.Drawing.Point(150, 24)
+        Me.Button_Design_NTU.Font = New System.Drawing.Font("SimSun", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button_Design_NTU.Location = New System.Drawing.Point(174, 24)
         Me.Button_Design_NTU.Margin = New System.Windows.Forms.Padding(5)
         Me.Button_Design_NTU.Name = "Button_Design_NTU"
-        Me.Button_Design_NTU.Size = New System.Drawing.Size(92, 46)
+        Me.Button_Design_NTU.Size = New System.Drawing.Size(118, 46)
         Me.Button_Design_NTU.TabIndex = 1
         Me.Button_Design_NTU.Text = "传热单元数法"
         Me.Button_Design_NTU.UseVisualStyleBackColor = True
         '
         'Button_Design_CMTD
         '
+        Me.Button_Design_CMTD.Font = New System.Drawing.Font("SimSun", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button_Design_CMTD.Location = New System.Drawing.Point(10, 24)
         Me.Button_Design_CMTD.Margin = New System.Windows.Forms.Padding(5)
         Me.Button_Design_CMTD.Name = "Button_Design_CMTD"
-        Me.Button_Design_CMTD.Size = New System.Drawing.Size(92, 46)
+        Me.Button_Design_CMTD.Size = New System.Drawing.Size(118, 46)
         Me.Button_Design_CMTD.TabIndex = 0
         Me.Button_Design_CMTD.Text = "平均温差法"
         Me.Button_Design_CMTD.UseVisualStyleBackColor = True
@@ -70,32 +72,34 @@ Partial Class MainForm
         '
         Me.GroupBox_Check.Controls.Add(Me.Button_Check_NTU)
         Me.GroupBox_Check.Controls.Add(Me.Button_Check_CMTD)
-        Me.GroupBox_Check.Font = New System.Drawing.Font("SimSun", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.GroupBox_Check.Location = New System.Drawing.Point(282, 14)
+        Me.GroupBox_Check.Font = New System.Drawing.Font("SimSun", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.GroupBox_Check.Location = New System.Drawing.Point(373, 14)
         Me.GroupBox_Check.Margin = New System.Windows.Forms.Padding(5)
         Me.GroupBox_Check.Name = "GroupBox_Check"
         Me.GroupBox_Check.Padding = New System.Windows.Forms.Padding(5)
-        Me.GroupBox_Check.Size = New System.Drawing.Size(252, 89)
+        Me.GroupBox_Check.Size = New System.Drawing.Size(302, 89)
         Me.GroupBox_Check.TabIndex = 1
         Me.GroupBox_Check.TabStop = False
         Me.GroupBox_Check.Text = "校核计算"
         '
         'Button_Check_NTU
         '
-        Me.Button_Check_NTU.Location = New System.Drawing.Point(150, 24)
+        Me.Button_Check_NTU.Font = New System.Drawing.Font("SimSun", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Button_Check_NTU.Location = New System.Drawing.Point(174, 24)
         Me.Button_Check_NTU.Margin = New System.Windows.Forms.Padding(5)
         Me.Button_Check_NTU.Name = "Button_Check_NTU"
-        Me.Button_Check_NTU.Size = New System.Drawing.Size(92, 46)
+        Me.Button_Check_NTU.Size = New System.Drawing.Size(118, 46)
         Me.Button_Check_NTU.TabIndex = 1
         Me.Button_Check_NTU.Text = "传热单元数法"
         Me.Button_Check_NTU.UseVisualStyleBackColor = True
         '
         'Button_Check_CMTD
         '
+        Me.Button_Check_CMTD.Font = New System.Drawing.Font("SimSun", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.Button_Check_CMTD.Location = New System.Drawing.Point(10, 24)
         Me.Button_Check_CMTD.Margin = New System.Windows.Forms.Padding(5)
         Me.Button_Check_CMTD.Name = "Button_Check_CMTD"
-        Me.Button_Check_CMTD.Size = New System.Drawing.Size(92, 46)
+        Me.Button_Check_CMTD.Size = New System.Drawing.Size(118, 46)
         Me.Button_Check_CMTD.TabIndex = 0
         Me.Button_Check_CMTD.Text = "平均温差法"
         Me.Button_Check_CMTD.UseVisualStyleBackColor = True
@@ -104,7 +108,7 @@ Partial Class MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(10.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(554, 120)
+        Me.ClientSize = New System.Drawing.Size(689, 120)
         Me.Controls.Add(Me.GroupBox_Check)
         Me.Controls.Add(Me.GroupBox_Design)
         Me.Font = New System.Drawing.Font("SimSun", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
