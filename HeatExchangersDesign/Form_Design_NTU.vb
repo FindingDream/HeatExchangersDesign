@@ -120,9 +120,13 @@
                 TextBox_NTU.Text = Format(Math.Log((1 - Val(TextBox_Effectiveness.Text)) / (1 - Val(TextBox_Effectiveness.Text) * Cr)) / (Cr - 1), "#.##")
             End If
         Else
-
-            '其他流动形式待补充
-
+            Dim Temp As Single
+            Temp = E_To_NTU(Cp_Tube * Val(TextBox_Tube_Flux.Text), Cp_Shell * Val(TextBox_Shell_Flux.Text), Val(TextBox_Effectiveness.Text))
+            If Temp = 0 Then
+                Return
+            Else
+                TextBox_NTU.Text = Format(Temp, "#.##")
+            End If
         End If
 
         TextBox_HeatTransferArea.Text = Format(Val(TextBox_NTU.Text) * Min(Cp_Shell * Val(TextBox_Shell_Flux.Text), Cp_Tube * Val(TextBox_Tube_Flux.Text)) * 1000 /

@@ -7,4 +7,24 @@
         NewForm.ShowDialog()
         Return ModifiedCoefficient
     End Function
+
+    Public Effectiveness, NTU As Single
+    Public Function E_To_NTU(ByVal Cq_Tube As Single, ByVal Cq_Shell As Single, ByVal Effectiveness As Single) As Single
+        Dim NewForm As New Form_E_NTU
+        NewForm.Cq_Tube = Cq_Tube
+        NewForm.Cq_Shell = Cq_Shell
+        NewForm.TextBox_Effectiveness.ReadOnly = True
+        NewForm.TextBox_Effectiveness.Text = Format(Effectiveness, "#.##")
+        NewForm.ShowDialog()
+        Return NTU
+    End Function
+    Public Function NTU_To_E(ByVal Cq_Tube As Single, ByVal Cq_Shell As Single, ByVal NTU As Single) As Single
+        Dim NewForm As New Form_E_NTU
+        NewForm.Cq_Tube = Cq_Tube
+        NewForm.Cq_Shell = Cq_Shell
+        NewForm.TextBox_NTU.ReadOnly = True
+        NewForm.TextBox_NTU.Text = Format(NTU, "#.##")
+        NewForm.ShowDialog()
+        Return Effectiveness
+    End Function
 End Module

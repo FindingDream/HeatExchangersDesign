@@ -43,8 +43,10 @@ Partial Class Form_Check_NTU
         Me.TextBox_Tube_inTemperature = New System.Windows.Forms.TextBox()
         Me.Label_Tube_inTemperature = New System.Windows.Forms.Label()
         Me.GroupBox_CheckResult = New System.Windows.Forms.GroupBox()
-        Me.TextBox_TemperatureDifference = New System.Windows.Forms.TextBox()
-        Me.Label_TemperatureDifference = New System.Windows.Forms.Label()
+        Me.TextBox_NTU = New System.Windows.Forms.TextBox()
+        Me.Label_NTU = New System.Windows.Forms.Label()
+        Me.TextBox_Effectiveness = New System.Windows.Forms.TextBox()
+        Me.Label_Effectiveness = New System.Windows.Forms.Label()
         Me.TextBox_HeatTransferRate = New System.Windows.Forms.TextBox()
         Me.Label_HeatTransferRate = New System.Windows.Forms.Label()
         Me.TextBox_Shell_outTemperature = New System.Windows.Forms.TextBox()
@@ -268,8 +270,10 @@ Partial Class Form_Check_NTU
         '
         'GroupBox_CheckResult
         '
-        Me.GroupBox_CheckResult.Controls.Add(Me.TextBox_TemperatureDifference)
-        Me.GroupBox_CheckResult.Controls.Add(Me.Label_TemperatureDifference)
+        Me.GroupBox_CheckResult.Controls.Add(Me.TextBox_NTU)
+        Me.GroupBox_CheckResult.Controls.Add(Me.Label_NTU)
+        Me.GroupBox_CheckResult.Controls.Add(Me.TextBox_Effectiveness)
+        Me.GroupBox_CheckResult.Controls.Add(Me.Label_Effectiveness)
         Me.GroupBox_CheckResult.Controls.Add(Me.TextBox_HeatTransferRate)
         Me.GroupBox_CheckResult.Controls.Add(Me.Label_HeatTransferRate)
         Me.GroupBox_CheckResult.Controls.Add(Me.TextBox_Shell_outTemperature)
@@ -285,25 +289,45 @@ Partial Class Form_Check_NTU
         Me.GroupBox_CheckResult.TabStop = False
         Me.GroupBox_CheckResult.Text = "校核结果"
         '
-        'TextBox_TemperatureDifference
+        'TextBox_NTU
         '
-        Me.TextBox_TemperatureDifference.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.TextBox_TemperatureDifference.Location = New System.Drawing.Point(183, 130)
-        Me.TextBox_TemperatureDifference.Name = "TextBox_TemperatureDifference"
-        Me.TextBox_TemperatureDifference.ReadOnly = True
-        Me.TextBox_TemperatureDifference.Size = New System.Drawing.Size(68, 29)
-        Me.TextBox_TemperatureDifference.TabIndex = 18
-        Me.TextBox_TemperatureDifference.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.TextBox_NTU.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_NTU.Location = New System.Drawing.Point(564, 80)
+        Me.TextBox_NTU.Name = "TextBox_NTU"
+        Me.TextBox_NTU.ReadOnly = True
+        Me.TextBox_NTU.Size = New System.Drawing.Size(68, 29)
+        Me.TextBox_NTU.TabIndex = 26
+        Me.TextBox_NTU.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'Label_TemperatureDifference
+        'Label_NTU
         '
-        Me.Label_TemperatureDifference.AutoSize = True
-        Me.Label_TemperatureDifference.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
-        Me.Label_TemperatureDifference.Location = New System.Drawing.Point(6, 133)
-        Me.Label_TemperatureDifference.Name = "Label_TemperatureDifference"
-        Me.Label_TemperatureDifference.Size = New System.Drawing.Size(131, 19)
-        Me.Label_TemperatureDifference.TabIndex = 17
-        Me.Label_TemperatureDifference.Text = "平均温差(℃)"
+        Me.Label_NTU.AutoSize = True
+        Me.Label_NTU.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_NTU.Location = New System.Drawing.Point(385, 83)
+        Me.Label_NTU.Name = "Label_NTU"
+        Me.Label_NTU.Size = New System.Drawing.Size(142, 19)
+        Me.Label_NTU.TabIndex = 25
+        Me.Label_NTU.Text = "传热单元数NTU"
+        '
+        'TextBox_Effectiveness
+        '
+        Me.TextBox_Effectiveness.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.TextBox_Effectiveness.Location = New System.Drawing.Point(183, 130)
+        Me.TextBox_Effectiveness.Name = "TextBox_Effectiveness"
+        Me.TextBox_Effectiveness.ReadOnly = True
+        Me.TextBox_Effectiveness.Size = New System.Drawing.Size(68, 29)
+        Me.TextBox_Effectiveness.TabIndex = 24
+        Me.TextBox_Effectiveness.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Label_Effectiveness
+        '
+        Me.Label_Effectiveness.AutoSize = True
+        Me.Label_Effectiveness.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
+        Me.Label_Effectiveness.Location = New System.Drawing.Point(6, 133)
+        Me.Label_Effectiveness.Name = "Label_Effectiveness"
+        Me.Label_Effectiveness.Size = New System.Drawing.Size(129, 19)
+        Me.Label_Effectiveness.TabIndex = 23
+        Me.Label_Effectiveness.Text = "换热器效能ε"
         '
         'TextBox_HeatTransferRate
         '
@@ -433,14 +457,16 @@ Partial Class Form_Check_NTU
     Friend WithEvents TextBox_Tube_inTemperature As TextBox
     Friend WithEvents Label_Tube_inTemperature As Label
     Friend WithEvents GroupBox_CheckResult As GroupBox
-    Friend WithEvents TextBox_TemperatureDifference As TextBox
-    Friend WithEvents Label_TemperatureDifference As Label
     Friend WithEvents TextBox_HeatTransferRate As TextBox
     Friend WithEvents Label_HeatTransferRate As Label
     Friend WithEvents TextBox_Shell_outTemperature As TextBox
     Friend WithEvents Label_Shell_outTemperature As Label
     Friend WithEvents TextBox_Tube_outTemperature As TextBox
     Friend WithEvents Label_Tube_outTemperature As Label
+    Friend WithEvents TextBox_NTU As TextBox
+    Friend WithEvents Label_NTU As Label
+    Friend WithEvents TextBox_Effectiveness As TextBox
+    Friend WithEvents Label_Effectiveness As Label
     Friend WithEvents TextBox_OverallHeatTransferCoefficient As TextBox
     Friend WithEvents Label_OverallHeatTransferCoefficient As Label
 End Class
