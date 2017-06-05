@@ -1,10 +1,10 @@
 ﻿Public Class Form_E_NTU
     Public Cq_Tube, Cq_Shell As Single
+    Dim NewImage As Image = Image.FromFile(Application.StartupPath & "\Images\IMG_2_1.jpg")
     Private Sub Form_E_NTU_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim NewImage As Image = Image.FromFile("G:\Graduation Project\HeatExchangersDesign\HeatExchangersDesign\Images\IMG_2_1.jpg")
         PictureBox_E_NTU.Image = NewImage
         ComboBox_MixedType.Text = ComboBox_MixedType.Items(0)
-        TextBox_Cr.Text = Format(Min(Cq_Shell, Cq_Tube) / Max(Cq_Tube, Cq_Shell), "#.##")
+        TextBox_Cr.Text = Format(Min(Cq_Shell, Cq_Tube) / Max(Cq_Tube, Cq_Shell), "#0.##")
     End Sub
 
     Private Sub Button_OK_Click(sender As Object, e As EventArgs) Handles Button_OK.Click
@@ -27,11 +27,11 @@
 
     Private Sub ComboBox_MixedType_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox_MixedType.SelectedIndexChanged
         If ComboBox_MixedType.Text = "管侧混合" Then
-            TextBox_Cr.Text = Format(Cq_Tube / Cq_Shell, "#.##")
+            TextBox_Cr.Text = Format(Cq_Tube / Cq_Shell, "#0.##")
         ElseIf ComboBox_MixedType.Text = "壳侧混合" Then
-            TextBox_Cr.Text = Format(Cq_Shell / Cq_Tube, "#.##")
+            TextBox_Cr.Text = Format(Cq_Shell / Cq_Tube, "#0.##")
         Else
-            TextBox_Cr.Text = Format(Min(Cq_Shell, Cq_Tube) / Max(Cq_Tube, Cq_Shell), "#.##")
+            TextBox_Cr.Text = Format(Min(Cq_Shell, Cq_Tube) / Max(Cq_Tube, Cq_Shell), "#0.##")
         End If
     End Sub
 

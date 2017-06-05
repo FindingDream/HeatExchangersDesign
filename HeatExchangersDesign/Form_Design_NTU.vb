@@ -3,16 +3,6 @@
         ComboBox_Tube_Fluid.Text = ComboBox_Tube_Fluid.Items(0)
         ComboBox_Shell_Fluid.Text = ComboBox_Shell_Fluid.Items(0)
         ComboBox_FlowType.Text = ComboBox_FlowType.Items(0)
-
-        TextBox_Tube_Flux.Text = "6.696"
-        TextBox_Tube_inTemperature.Text = "92.3"
-        TextBox_Tube_outTemperature.Text = "58.51"
-        TextBox_Shell_Flux.Text = "13.6"
-        TextBox_Shell_inTemperature.Text = "37.8"
-        TextBox_InnerTubeDiameter.Text = "14"
-        TextBox_OuterTubeDiameter.Text = "16"
-        TextBox_Shell_h.Text = "3958"
-        TextBox_Tube_h.Text = "2800"
     End Sub
 
     Private Sub Button_Clean_Click(sender As Object, e As EventArgs) Handles Button_Clean.Click
@@ -49,19 +39,19 @@
         If TextBox_Tube_inTemperature.Text <> "" And TextBox_Tube_outTemperature.Text <> "" And TextBox_Shell_inTemperature.Text <> "" Then
             Cp_Tube = Cp(ComboBox_Tube_Fluid.SelectedIndex, (Val(TextBox_Tube_inTemperature.Text) + Val(TextBox_Tube_outTemperature.Text)) / 2)
             Cp_Shell = Cp(ComboBox_Shell_Fluid.SelectedIndex, Val(TextBox_Shell_inTemperature.Text))
-            TextBox_Shell_outTemperature.Text = Format((Val(TextBox_Shell_inTemperature.Text) + (Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)) * Cp_Tube * Val(TextBox_Tube_Flux.Text) / Cp_Shell / Val(TextBox_Shell_Flux.Text)), "#.##")
+            TextBox_Shell_outTemperature.Text = Format((Val(TextBox_Shell_inTemperature.Text) + (Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)) * Cp_Tube * Val(TextBox_Tube_Flux.Text) / Cp_Shell / Val(TextBox_Shell_Flux.Text)), "#0.##")
         ElseIf TextBox_Tube_inTemperature.Text <> "" And TextBox_Tube_outTemperature.Text <> "" And TextBox_Shell_outTemperature.Text <> "" Then
             Cp_Tube = Cp(ComboBox_Tube_Fluid.SelectedIndex, (Val(TextBox_Tube_inTemperature.Text) + Val(TextBox_Tube_outTemperature.Text)) / 2)
             Cp_Shell = Cp(ComboBox_Shell_Fluid.SelectedIndex, Val(TextBox_Shell_outTemperature.Text))
-            TextBox_Shell_inTemperature.Text = Format((Val(TextBox_Shell_outTemperature.Text) - (Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)) * Cp_Tube * Val(TextBox_Tube_Flux.Text) / Cp_Shell / Val(TextBox_Shell_Flux.Text)), "#.##")
+            TextBox_Shell_inTemperature.Text = Format((Val(TextBox_Shell_outTemperature.Text) - (Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)) * Cp_Tube * Val(TextBox_Tube_Flux.Text) / Cp_Shell / Val(TextBox_Shell_Flux.Text)), "#0.##")
         ElseIf TextBox_Tube_inTemperature.Text <> "" And TextBox_Shell_inTemperature.Text <> "" And TextBox_Shell_outTemperature.Text <> "" Then
             Cp_Tube = Cp(ComboBox_Tube_Fluid.SelectedIndex, Val(TextBox_Tube_inTemperature.Text))
             Cp_Shell = Cp(ComboBox_Shell_Fluid.SelectedIndex, (Val(TextBox_Shell_inTemperature.Text) + Val(TextBox_Shell_outTemperature.Text)) / 2)
-            TextBox_Tube_outTemperature.Text = Format((Val(TextBox_Tube_inTemperature.Text) + (Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Shell_outTemperature.Text)) * Cp_Shell * Val(TextBox_Shell_Flux.Text) / Cp_Tube / Val(TextBox_Tube_Flux.Text)), "#.##")
+            TextBox_Tube_outTemperature.Text = Format((Val(TextBox_Tube_inTemperature.Text) + (Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Shell_outTemperature.Text)) * Cp_Shell * Val(TextBox_Shell_Flux.Text) / Cp_Tube / Val(TextBox_Tube_Flux.Text)), "#0.##")
         ElseIf TextBox_Tube_outTemperature.Text <> "" And TextBox_Shell_inTemperature.Text <> "" And TextBox_Shell_outTemperature.Text <> "" Then
             Cp_Tube = Cp(ComboBox_Tube_Fluid.SelectedIndex, Val(TextBox_Tube_outTemperature.Text))
             Cp_Shell = Cp(ComboBox_Shell_Fluid.SelectedIndex, (Val(TextBox_Shell_inTemperature.Text) + Val(TextBox_Shell_outTemperature.Text)) / 2)
-            TextBox_Tube_inTemperature.Text = Format((Val(TextBox_Tube_outTemperature.Text) - (Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Shell_outTemperature.Text)) * Cp_Shell * Val(TextBox_Shell_Flux.Text) / Cp_Tube / Val(TextBox_Tube_Flux.Text)), "#.##")
+            TextBox_Tube_inTemperature.Text = Format((Val(TextBox_Tube_outTemperature.Text) - (Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Shell_outTemperature.Text)) * Cp_Shell * Val(TextBox_Shell_Flux.Text) / Cp_Tube / Val(TextBox_Tube_Flux.Text)), "#0.##")
         Else
             MsgBox("温度数据不足，请至少输入三个温度数据！",, "提示")
             Return
@@ -93,31 +83,31 @@
 
         If TextBox_ThermalConductivity.Text = Nothing Or TextBox_ThermalConductivity.Text = "0" Then
             TextBox_OverallHeatTransferCoefficient.Text = Format((1.0 / (Val(TextBox_OuterTubeDiameter.Text) / Val(TextBox_InnerTubeDiameter.Text) / Val(TextBox_Tube_h.Text) +
-                1.0 / Val(TextBox_Shell_h.Text))), "#.##")
+                1.0 / Val(TextBox_Shell_h.Text))), "#0.##")
         Else
             TextBox_OverallHeatTransferCoefficient.Text = Format((1.0 / (Val(TextBox_OuterTubeDiameter.Text) / Val(TextBox_InnerTubeDiameter.Text) / Val(TextBox_Tube_h.Text) +
                 1.0 / Val(TextBox_Shell_h.Text) +
-                Val(TextBox_OuterTubeDiameter.Text) / 2000.0 / Val(TextBox_ThermalConductivity.Text) * System.Math.Log(Val(TextBox_OuterTubeDiameter.Text) / Val(TextBox_InnerTubeDiameter.Text)))), "#.##")
+                Val(TextBox_OuterTubeDiameter.Text) / 2000.0 / Val(TextBox_ThermalConductivity.Text) * System.Math.Log(Val(TextBox_OuterTubeDiameter.Text) / Val(TextBox_InnerTubeDiameter.Text)))), "#0.##")
         End If
 
         Dim Cr As Single
         If Cp_Shell * Val(TextBox_Shell_Flux.Text) > Cp_Tube * Val(TextBox_Tube_Flux.Text) Then
             Cr = (Cp_Tube * Val(TextBox_Tube_Flux.Text)) / (Cp_Shell * Val(TextBox_Shell_Flux.Text))
             TextBox_Effectiveness.Text = Format(Math.Abs(Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Tube_outTemperature.Text)) /
-                Math.Abs(Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Shell_inTemperature.Text)), "#.##")
+                Math.Abs(Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Shell_inTemperature.Text)), "#0.##")
         Else
             Cr = (Cp_Shell * Val(TextBox_Shell_Flux.Text)) / (Cp_Tube * Val(TextBox_Tube_Flux.Text))
             TextBox_Effectiveness.Text = Format(Math.Abs(Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_Shell_outTemperature.Text)) /
-                Math.Abs(Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Shell_inTemperature.Text)), "#.##")
+                Math.Abs(Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_Shell_inTemperature.Text)), "#0.##")
         End If
 
         If ComboBox_FlowType.Text = "纯顺流" Then
-            TextBox_NTU.Text = Format(-Math.Log(1 - Val(TextBox_Effectiveness.Text) * (1 + Cr)) / (1 + Cr), "#.##")
+            TextBox_NTU.Text = Format(-Math.Log(1 - Val(TextBox_Effectiveness.Text) * (1 + Cr)) / (1 + Cr), "#0.##")
         ElseIf ComboBox_FlowType.Text = "纯逆流" Then
             If Cr = 1 Then
-                TextBox_NTU.Text = Format(Val(TextBox_Effectiveness.Text) / (1 - Val(TextBox_Effectiveness.Text)), "#.##")
+                TextBox_NTU.Text = Format(Val(TextBox_Effectiveness.Text) / (1 - Val(TextBox_Effectiveness.Text)), "#0.##")
             Else
-                TextBox_NTU.Text = Format(Math.Log((1 - Val(TextBox_Effectiveness.Text)) / (1 - Val(TextBox_Effectiveness.Text) * Cr)) / (Cr - 1), "#.##")
+                TextBox_NTU.Text = Format(Math.Log((1 - Val(TextBox_Effectiveness.Text)) / (1 - Val(TextBox_Effectiveness.Text) * Cr)) / (Cr - 1), "#0.##")
             End If
         Else
             Dim Temp As Single
@@ -125,11 +115,11 @@
             If Temp = 0 Then
                 Return
             Else
-                TextBox_NTU.Text = Format(Temp, "#.##")
+                TextBox_NTU.Text = Format(Temp, "#0.##")
             End If
         End If
 
         TextBox_HeatTransferArea.Text = Format(Val(TextBox_NTU.Text) * Min(Cp_Shell * Val(TextBox_Shell_Flux.Text), Cp_Tube * Val(TextBox_Tube_Flux.Text)) * 1000 /
-            3.6 / (TextBox_OverallHeatTransferCoefficient.Text), "#.##")
+            3.6 / (TextBox_OverallHeatTransferCoefficient.Text), "#0.##")
     End Sub
 End Class

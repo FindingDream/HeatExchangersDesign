@@ -3,13 +3,6 @@
         ComboBox_Tube_Fluid.Text = ComboBox_Tube_Fluid.Items(0)
         ComboBox_Shell_Fluid.Text = ComboBox_Shell_Fluid.Items(0)
         ComboBox_FlowType.Text = ComboBox_FlowType.Items(0)
-
-        TextBox_Tube_Flux.Text = "6.696"
-        TextBox_Tube_inTemperature.Text = "92.3"
-        TextBox_Shell_Flux.Text = "13.6"
-        TextBox_Shell_inTemperature.Text = "37.8"
-        TextBox_HeatTransferArea.Text = "6.13"
-        TextBox_OverallHeatTransferCoefficient.Text = "1513.28"
     End Sub
 
     Private Sub Button_Clean_Click(sender As Object, e As EventArgs) Handles Button_Clean.Click
@@ -78,19 +71,19 @@
 
         If Cp_Shell * Val(TextBox_Shell_Flux.Text) > Cp_Tube * Val(TextBox_Tube_Flux.Text) Then
             Cr = (Cp_Tube * Val(TextBox_Tube_Flux.Text)) / (Cp_Shell * Val(TextBox_Shell_Flux.Text))
-            TextBox_NTU.Text = Format(Val(TextBox_OverallHeatTransferCoefficient.Text) * Val(TextBox_HeatTransferArea.Text) / Cp_Tube / Val(TextBox_Tube_Flux.Text) / 1000 * 3.6, "#.##")
+            TextBox_NTU.Text = Format(Val(TextBox_OverallHeatTransferCoefficient.Text) * Val(TextBox_HeatTransferArea.Text) / Cp_Tube / Val(TextBox_Tube_Flux.Text) / 1000 * 3.6, "#0.##")
         Else
             Cr = (Cp_Shell * Val(TextBox_Shell_Flux.Text)) / (Cp_Tube * Val(TextBox_Tube_Flux.Text))
-            TextBox_NTU.Text = Format(Val(TextBox_OverallHeatTransferCoefficient.Text) * Val(TextBox_HeatTransferArea.Text) / Cp_Shell / Val(TextBox_Shell_Flux.Text) / 1000 * 3.6, "#.##")
+            TextBox_NTU.Text = Format(Val(TextBox_OverallHeatTransferCoefficient.Text) * Val(TextBox_HeatTransferArea.Text) / Cp_Shell / Val(TextBox_Shell_Flux.Text) / 1000 * 3.6, "#0.##")
         End If
 
         If ComboBox_FlowType.Text = "纯顺流" Then
-            TextBox_Effectiveness.Text = Format((1 - Math.Exp(-Val(TextBox_NTU.Text) * (1 + Cr))) / (1 + Cr), "#.##")
+            TextBox_Effectiveness.Text = Format((1 - Math.Exp(-Val(TextBox_NTU.Text) * (1 + Cr))) / (1 + Cr), "#0.##")
         ElseIf ComboBox_FlowType.Text = "纯逆流" Then
             If Cr = 1 Then
-                TextBox_Effectiveness.Text = Format(Val(TextBox_NTU.Text) / (Val(TextBox_NTU.Text) + 1), "#.##")
+                TextBox_Effectiveness.Text = Format(Val(TextBox_NTU.Text) / (Val(TextBox_NTU.Text) + 1), "#0.##")
             Else
-                TextBox_Effectiveness.Text = Format((1 - Math.Exp(-Val(TextBox_NTU.Text) * (1 - Cr))) / (1 - Cr * Math.Exp(-Val(TextBox_NTU.Text) * (1 - Cr))), "#.##")
+                TextBox_Effectiveness.Text = Format((1 - Math.Exp(-Val(TextBox_NTU.Text) * (1 - Cr))) / (1 - Cr * Math.Exp(-Val(TextBox_NTU.Text) * (1 - Cr))), "#0.##")
             End If
         Else
             Dim Temp As Single
@@ -98,7 +91,7 @@
             If Temp = 0 Then
                 Return
             Else
-                TextBox_Effectiveness.Text = Format(Temp, "#.##")
+                TextBox_Effectiveness.Text = Format(Temp, "#0.##")
             End If
         End If
 
@@ -106,14 +99,14 @@
                                                Min(Cp_Shell * Val(TextBox_Shell_Flux.Text), Cp_Tube * Val(TextBox_Tube_Flux.Text)) *
                                                1000 / 3.6 *
                                                Math.Abs(Val(TextBox_Tube_inTemperature.Text) -
-                                               Val(TextBox_Shell_inTemperature.Text)), "#.##")
+                                               Val(TextBox_Shell_inTemperature.Text)), "#0.##")
 
         If Val(TextBox_Tube_inTemperature.Text) > Val(TextBox_Shell_inTemperature.Text) Then
-            TextBox_Tube_outTemperature.Text = Format(Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_HeatTransferRate.Text) / Cp_Tube / Val(TextBox_Tube_Flux.Text) / 1000 * 3.6, "#.##")
-            TextBox_Shell_outTemperature.Text = Format(Val(TextBox_Shell_inTemperature.Text) + Val(TextBox_HeatTransferRate.Text) / Cp_Shell / Val(TextBox_Shell_Flux.Text) / 1000 * 3.6, "#.##")
+            TextBox_Tube_outTemperature.Text = Format(Val(TextBox_Tube_inTemperature.Text) - Val(TextBox_HeatTransferRate.Text) / Cp_Tube / Val(TextBox_Tube_Flux.Text) / 1000 * 3.6, "#0.##")
+            TextBox_Shell_outTemperature.Text = Format(Val(TextBox_Shell_inTemperature.Text) + Val(TextBox_HeatTransferRate.Text) / Cp_Shell / Val(TextBox_Shell_Flux.Text) / 1000 * 3.6, "#0.##")
         Else
-            TextBox_Tube_outTemperature.Text = Format(Val(TextBox_Tube_inTemperature.Text) + Val(TextBox_HeatTransferRate.Text) / Cp_Tube / Val(TextBox_Tube_Flux.Text) / 1000 * 3.6, "#.##")
-            TextBox_Shell_outTemperature.Text = Format(Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_HeatTransferRate.Text) / Cp_Shell / Val(TextBox_Shell_Flux.Text) / 1000 * 3.6, "#.##")
+            TextBox_Tube_outTemperature.Text = Format(Val(TextBox_Tube_inTemperature.Text) + Val(TextBox_HeatTransferRate.Text) / Cp_Tube / Val(TextBox_Tube_Flux.Text) / 1000 * 3.6, "#0.##")
+            TextBox_Shell_outTemperature.Text = Format(Val(TextBox_Shell_inTemperature.Text) - Val(TextBox_HeatTransferRate.Text) / Cp_Shell / Val(TextBox_Shell_Flux.Text) / 1000 * 3.6, "#0.##")
         End If
     End Sub
 End Class

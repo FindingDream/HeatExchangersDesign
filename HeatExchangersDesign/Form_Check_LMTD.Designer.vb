@@ -78,7 +78,7 @@ Partial Class Form_Check_LMTD
         Me.ComboBox_Shell_Fluid.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox_Shell_Fluid.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.ComboBox_Shell_Fluid.FormattingEnabled = True
-        Me.ComboBox_Shell_Fluid.Items.AddRange(New Object() {"水", "14号润滑油"})
+        Me.ComboBox_Shell_Fluid.Items.AddRange(New Object() {"水", "干空气", "11号润滑油", "14号润滑油"})
         Me.ComboBox_Shell_Fluid.Location = New System.Drawing.Point(125, 20)
         Me.ComboBox_Shell_Fluid.Name = "ComboBox_Shell_Fluid"
         Me.ComboBox_Shell_Fluid.Size = New System.Drawing.Size(120, 27)
@@ -152,7 +152,7 @@ Partial Class Form_Check_LMTD
         Me.ComboBox_Tube_Fluid.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox_Tube_Fluid.Font = New System.Drawing.Font("SimSun", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(134, Byte))
         Me.ComboBox_Tube_Fluid.FormattingEnabled = True
-        Me.ComboBox_Tube_Fluid.Items.AddRange(New Object() {"水", "14号润滑油"})
+        Me.ComboBox_Tube_Fluid.Items.AddRange(New Object() {"水", "干空气", "11号润滑油", "14号润滑油"})
         Me.ComboBox_Tube_Fluid.Location = New System.Drawing.Point(124, 20)
         Me.ComboBox_Tube_Fluid.Name = "ComboBox_Tube_Fluid"
         Me.ComboBox_Tube_Fluid.Size = New System.Drawing.Size(120, 27)

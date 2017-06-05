@@ -14,7 +14,7 @@
         NewForm.Cq_Tube = Cq_Tube
         NewForm.Cq_Shell = Cq_Shell
         NewForm.TextBox_Effectiveness.ReadOnly = True
-        NewForm.TextBox_Effectiveness.Text = Format(Effectiveness, "#.##")
+        NewForm.TextBox_Effectiveness.Text = Format(Effectiveness, "#0.##")
         NewForm.ShowDialog()
         Return NTU
     End Function
@@ -23,7 +23,7 @@
         NewForm.Cq_Tube = Cq_Tube
         NewForm.Cq_Shell = Cq_Shell
         NewForm.TextBox_NTU.ReadOnly = True
-        NewForm.TextBox_NTU.Text = Format(NTU, "#.##")
+        NewForm.TextBox_NTU.Text = Format(NTU, "#0.##")
         NewForm.ShowDialog()
         Return Effectiveness
     End Function

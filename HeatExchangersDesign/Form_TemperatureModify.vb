@@ -1,16 +1,16 @@
 ﻿Public Class Form_TemperatureModify
-    Dim Image0 As Image = Image.FromFile("G:\Graduation Project\HeatExchangersDesign\HeatExchangersDesign\Images\IMG_1_1.jpg")
-    Dim Image1 As Image = Image.FromFile("G:\Graduation Project\HeatExchangersDesign\HeatExchangersDesign\Images\IMG_1_2.jpg")
-    Dim Image2 As Image = Image.FromFile("G:\Graduation Project\HeatExchangersDesign\HeatExchangersDesign\Images\IMG_1_3.jpg")
-    Dim Image3 As Image = Image.FromFile("G:\Graduation Project\HeatExchangersDesign\HeatExchangersDesign\Images\IMG_1_4.jpg")
+    Dim Image0 As Image = Image.FromFile(Application.StartupPath & "\Images\IMG_1_1.jpg")
+    Dim Image1 As Image = Image.FromFile(Application.StartupPath & "\Images\IMG_1_2.jpg")
+    Dim Image2 As Image = Image.FromFile(Application.StartupPath & "\Images\IMG_1_3.jpg")
+    Dim Image3 As Image = Image.FromFile(Application.StartupPath & "\Images\IMG_1_4.jpg")
 
     Private Sub Form_TemperatureModify_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBox_FlowType.Text = ComboBox_FlowType.Items(0)
         PictureBox_ModifiedCoefficient.Image = Image0
-        TextBox_R.Text = Format(R, "#.##")
-        TextBox_P.Text = Format(P, "#.##")
-        TextBox_1R.Text = Format(1.0 / R, "#.##")
-        TextBox_PR.Text = Format(P * R, "#.##")
+        TextBox_R.Text = Format(R, "#0.##")
+        TextBox_P.Text = Format(P, "#0.##")
+        TextBox_1R.Text = Format(1.0 / R, "#0.##")
+        TextBox_PR.Text = Format(P * R, "#0.##")
     End Sub
 
     Private Sub Button_OK_Click(sender As Object, e As EventArgs) Handles Button_OK.Click
